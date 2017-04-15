@@ -1,0 +1,30 @@
+nginx:
+    image: tutum/nginx
+    ports:
+        - "8080:80"
+    links:
+        - phpfpm
+    volumes:
+        - ./nginx/default:/etc/nginx/sites-available/default
+        - ./nginx/default:/etc/nginx/sites-enabled/default
+phpfpm:
+    build: ./php-fpm-b
+    ports:
+        - "9000:9000"
+        - "9005:9005"
+    volumes:
+        - ./public:/usr/share/nginx/html
+        - ./www:/var/www
+    tty: true
+    links:
+      - redis
+
+redis:
+  image: redis:3.2
+  ports:
+    - "6379"
+
+sonar:
+  image: sonarqube
+  ports:
+    - "9070:9000"

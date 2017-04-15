@@ -1,0 +1,12 @@
+{
+  "require": {
+    "laravel/lumen-installer": "~1.0",
+    "predis/predis": "~1.0",
+    "php-amqplib/php-amqplib": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "mockery/mockery": "*",
+    "fzaninotto/Faker": "*"
+  }
+}
